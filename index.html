@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Breed Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <h1>Cat Breed Explorer</h1>
+      <p>Tap a cat to learn what makes each breed unique.</p>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="gallery" aria-label="Cat breeds">
+      <button class="breed-card" data-breed="persian">
+        <img src="https://images.unsplash.com/photo-1552410260-0fdde1b8105f?auto=format&fit=crop&w=600&q=80" alt="Fluffy Persian cat" loading="lazy">
+        <span>Persian</span>
+      </button>
+      <button class="breed-card" data-breed="siamese">
+        <img src="https://images.unsplash.com/photo-1508674861872-3d7abdb11b83?auto=format&fit=crop&w=600&q=80" alt="Blue-eyed Siamese cat" loading="lazy">
+        <span>Siamese</span>
+      </button>
+      <button class="breed-card" data-breed="maine-coon">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Maine Coon cat relaxing" loading="lazy">
+        <span>Maine Coon</span>
+      </button>
+      <button class="breed-card" data-breed="bengal">
+        <img src="https://images.unsplash.com/photo-1619983081650-92ada9552050?auto=format&fit=crop&w=600&q=80" alt="Bengal cat with spotted coat" loading="lazy">
+        <span>Bengal</span>
+      </button>
+      <button class="breed-card" data-breed="sphynx">
+        <img src="https://images.unsplash.com/photo-1581783898377-2d0a8d63a4eb?auto=format&fit=crop&w=600&q=80" alt="Hairless Sphynx cat" loading="lazy">
+        <span>Sphynx</span>
+      </button>
+      <button class="breed-card" data-breed="ragdoll">
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80" alt="Ragdoll cat with blue eyes" loading="lazy">
+        <span>Ragdoll</span>
+      </button>
+    </section>
+
+    <section class="breed-info" aria-live="polite">
+      <div class="info-panel">
+        <h2 id="breed-name">Select a cat breed</h2>
+        <p id="breed-description">Click on any of the breeds to see their origin, personality, grooming needs, and more.</p>
+        <dl id="breed-details" class="details-list" hidden>
+          <div>
+            <dt>Origin</dt>
+            <dd id="detail-origin"></dd>
+          </div>
+          <div>
+            <dt>Personality</dt>
+            <dd id="detail-personality"></dd>
+          </div>
+          <div>
+            <dt>Coat</dt>
+            <dd id="detail-coat"></dd>
+          </div>
+          <div>
+            <dt>Care Tip</dt>
+            <dd id="detail-tip"></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p>Images courtesy of photographers on Unsplash. Information compiled from popular cat breed resources.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
