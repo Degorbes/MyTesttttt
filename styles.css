@@ -1,0 +1,217 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --accent: #f97316;
+  --accent-dark: #ea580c;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #fef3c7, #f3f4f6);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  width: min(1100px, 90vw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.site-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+main {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.breed-card {
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+  transition: transform 150ms ease, box-shadow 150ms ease, outline 150ms ease;
+  position: relative;
+  isolation: isolate;
+}
+
+.breed-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 24, 39, 0.45), rgba(17, 24, 39, 0));
+  opacity: 0;
+  transition: opacity 150ms ease;
+  z-index: 0;
+}
+
+.breed-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.breed-card span {
+  position: absolute;
+  inset: auto 0 1rem 0;
+  z-index: 1;
+  color: #f9fafb;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.breed-card:hover,
+.breed-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.15);
+}
+
+.breed-card:hover::after,
+.breed-card:focus-visible::after,
+.breed-card.is-active::after {
+  opacity: 1;
+}
+
+.breed-card.is-active {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.breed-info {
+  display: flex;
+  justify-content: center;
+}
+
+.info-panel {
+  width: min(720px, 100%);
+  background: var(--card-bg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-panel::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.3), transparent 60%);
+  z-index: 0;
+}
+
+.info-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.info-panel h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 0.75rem;
+}
+
+.info-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.details-list {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.details-list div {
+  background: rgba(249, 250, 251, 0.8);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+dt {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+dd {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: 2.5rem 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 960px) {
+  main {
+    grid-template-columns: 1.05fr 1fr;
+    align-items: start;
+  }
+
+  .gallery {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .breed-card img {
+    height: 150px;
+  }
+
+  .info-panel {
+    padding: 1.5rem;
+  }
+}
